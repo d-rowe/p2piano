@@ -1,0 +1,16 @@
+http://localhost:8345 {
+	root * /www
+	encode zstd gzip
+	file_server
+
+	@room {
+		path_regexp ^/\b[a-z]{5}\b$
+	}
+
+	reverse_proxy /api/* service:3001
+	reverse_proxy /socket.io/* service:3001
+
+	handle @room {
+		rewrite * /
+	}
+}
