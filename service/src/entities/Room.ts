@@ -7,6 +7,9 @@ import type {Room as IRoom, User} from '../utils/workspaceTypes';
 
 const generateRoomId = customAlphabet('abcdefghjkmnpqrstuvwxyz', 5);
 const RoomCollection = Database.collection<IRoom>('room');
+RoomCollection.createIndex({roomId: 1});
+// Room lasts for 1.5 hours
+RoomCollection.createIndex({createdAt: 1}, {expireAfterSeconds: 5400});
 
 
 export default class Room {
@@ -18,11 +21,15 @@ export default class Room {
 
   static async create() {
     const roomId = generateRoomId();
-    await RoomCollection.insertOne({roomId, users: {}});
+    await RoomCollection.insertOne({
+      roomId,
+      users: {},
+      createdAt: new Date(),
+    });
     return new Room(roomId);
   }
 
-  async get() {
+  async get(): Promise<IRoom> {
     const room = await RoomCollection.findOne({roomId: this.roomId});
     if (!room) {
       throw new RoomNotFoundError(`Room ${this.roomId} does not exist`);

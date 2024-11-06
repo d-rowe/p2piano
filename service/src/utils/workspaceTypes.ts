@@ -10,4 +10,5 @@ export type Room = {
     users: {
         [userId: string]: User,
     },
+    createdAt: Date,
 };

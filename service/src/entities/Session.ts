@@ -4,9 +4,13 @@ import Database from '../clients/Database';
 
 export type Session = {
   sessionId: string,
+  createdAt: Date,
 };
 
 const SessionCollection = Database.collection<Session>('session');
+SessionCollection.createIndex({sessionId: 1});
+// session ttl is 1 day
+SessionCollection.createIndex({createdAt: 1}, {expireAfterSeconds: 86400});
 
 
 export default class SessionProvider {
@@ -15,8 +19,14 @@ export default class SessionProvider {
 
   static async create() {
     const sessionId = uuidv4();
-    const session: Session = {sessionId};
-    await SessionCollection.insertOne(session);
+    const session: Session = {
+      sessionId,
+      createdAt: new Date(),
+    };
+    await SessionCollection.insertOne({
+      sessionId,
+      createdAt: new Date(),
+    });
     return session;
   }
 
