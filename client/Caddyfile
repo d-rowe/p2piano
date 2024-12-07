@@ -1,4 +1,4 @@
-http://localhost:8345 {
+http://:8345 {
 	root * /www
 	encode zstd gzip
 	file_server
