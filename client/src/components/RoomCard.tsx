@@ -24,8 +24,7 @@ export default function RoomCard() {
 
     const createRoom = useCallback(async () => {
         setRoomCreating(true);
-        const {data: room} = await createNewRoom();
-        // @ts-ignore
+        const room = await createNewRoom();
         navigateToRoom(room.roomId);
     }, [navigateToRoom]);
 

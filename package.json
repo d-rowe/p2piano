@@ -4,6 +4,11 @@
   "scripts": {
     "client:dev": "cd client && npm start",
     "client:build": "cd client && npm run build",
-    "service:dev": "cd service && nest start --watch"
+    "service:dev": "cd service && nest start --watch",
+    "dev": "concurrently \"npm run client:dev\" \"npm run service:dev\"",
+    "boostrap": "cd client && npm install && cd ../service && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
   }
 }

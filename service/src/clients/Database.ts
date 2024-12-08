@@ -1,6 +1,9 @@
 import {MongoClient} from "mongodb";
 
-const URI = 'mongodb://root:password@database:27017';
+const HOST = process.env.NODE_ENV === 'production'
+    ? 'database'
+    : 'localhost';
+const URI = `mongodb://root:password@${HOST}:27017`;
 const client = new MongoClient(URI);
 
 export default client.db('p2piano');
