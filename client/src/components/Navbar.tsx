@@ -1,4 +1,4 @@
-import {Box, Button, Flex} from '@chakra-ui/react';
+import {Button, Flex} from '@chakra-ui/react';
 import {useNavigate} from 'react-router-dom';
 
 export default function Navbar() {
@@ -20,7 +20,7 @@ export default function Navbar() {
                 onClick={() => navigate('/donate')}
                 background='none'
             >
-                Donate
+                donate
             </Button>
         </Flex>
     );

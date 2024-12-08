@@ -16,6 +16,7 @@ const GeneralPage = ({children}: Props) => (
         `}
         gridTemplateRows='32px minmax(0, 1fr) 32px'
         height='100%'
+        backgroundColor='ghostwhite'
     >
         <GridItem area='header'>
             <Navbar />

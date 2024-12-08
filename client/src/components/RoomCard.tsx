@@ -1,7 +1,6 @@
 import {
     Text,
     Heading,
-    Box,
     Center,
     Input,
     Stack,
@@ -9,11 +8,11 @@ import {
     Button,
     Spinner,
 } from '@chakra-ui/react';
-import { useNavigate } from "react-router-dom";
-import { createNewRoom, getRoom } from '../clients/RoomClient';
-import { useCallback, useState } from 'react';
+import {useNavigate} from "react-router-dom";
+import {createNewRoom, getRoom} from '../clients/RoomClient';
+import {useCallback, useState} from 'react';
 
-import type { ChangeEvent } from 'react';
+import type {ChangeEvent} from 'react';
 
 export default function RoomCard() {
     const [isRoomError, setRoomError] = useState(false);
@@ -49,48 +48,50 @@ export default function RoomCard() {
 
     return (
         <Center py={6}>
-            <Box
-                maxW='400px'
-                w='full'
-                bg='white'
-                boxShadow='2xl'
-                rounded='md'
-                overflow='hidden'
-            >
-                <Center>
-                    <Stack>
-                        <Heading pt={4} textAlign='center'>p2piano</Heading>
-                        <HStack p={6}>
-                            <Input
-                                placeholder='join room code'
-                                size='lg'
-                                maxLength={5}
-                                width='10rem'
-                                textAlign='center'
-                                onChange={onRoomCodeChange}
-                                isInvalid={isRoomError}
-                                errorBorderColor='red.300'
-                                textTransform='lowercase'
-                            />
-                            <Text>or</Text>
-                            <Button
-                                mt={4}
-                                bg='#151f21'
-                                color='white'
-                                rounded='md'
-                                onClick={createRoom}
-                                disabled={isRoomCreating}
-                            >
-                                {
-                                    isRoomCreating
-                                        ? <Spinner />
-                                        : 'create new room'
-                                }
-                            </Button>
-                        </HStack>
-                    </Stack>
-                </Center>
-            </Box>
+            <Stack>
+                <Heading
+                    pt={6}
+                    fontSize='8xl'
+                    textAlign='center'
+                    fontFamily='"Young Serif", serif'
+                >
+                    p2piano
+                </Heading>
+                <Text
+                    fontFamily='"Young Serif", serif'
+                    fontSize='xl'
+                >
+                    play piano with friends over a peer to peer network
+                </Text>
+                <HStack p={6} alignSelf='center'>
+                    <Input
+                        placeholder='join room code'
+                        size='lg'
+                        maxLength={5}
+                        width='10rem'
+                        textAlign='center'
+                        onChange={onRoomCodeChange}
+                        isInvalid={isRoomError}
+                        errorBorderColor='red.300'
+                        textTransform='lowercase'
+                    />
+                    <Text>or</Text>
+                    <Button
+                        mt={4}
+                        bg='#151f21'
+                        color='white'
+                        rounded='md'
+                        onClick={createRoom}
+                        disabled={isRoomCreating}
+                    >
+                        {
+                            isRoomCreating
+                                ? <Spinner />
+                                : 'create new room'
+                        }
+                    </Button>
+                </HStack>
+            </Stack>
         </Center>
     );
 }
