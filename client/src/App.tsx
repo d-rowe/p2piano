@@ -10,6 +10,7 @@ import { joinRoom } from './actions/WorkspaceActions';
 import { useEffect, useState } from 'react';
 import ClientPreferences from './lib/ClientPreferences';
 import DisplayNameModal from './components/DisplayNameModal';
+import Donate from './pages/Donate';
 
 const App = () => {
   const [displayName, setDisplayName] = useState<string | null>(ClientPreferences.getDisplayName());
@@ -27,6 +28,7 @@ const App = () => {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
+      <Route path='donate' element={<Donate />} />
       <Route path='assets' element={null} />
       <Route path='*' element={<RoomCheck />} />
     </Routes>

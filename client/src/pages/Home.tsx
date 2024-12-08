@@ -1,13 +1,10 @@
-import { Box } from '@chakra-ui/react'
 import RoomCard from '../components/RoomCard';
+import GeneralPage from '../components/GeneralPage';
 
 const Home = () => (
-    <Box
-        bg='black'
-        h='full'
-    >
+    <GeneralPage>
         <RoomCard />
-    </Box>
+    </GeneralPage>
 );
 
 export default Home;
