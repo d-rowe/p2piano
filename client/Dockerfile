@@ -13,5 +13,7 @@ ADD scripts ./scripts
 ADD src ./src
 
 RUN npm run build
-RUN rm -rf /www/*
-COPY ./build /www
+
+FROM caddy:2.8.4-alpine
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY --from=build-stage /app/build /www
