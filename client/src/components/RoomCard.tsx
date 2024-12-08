@@ -47,7 +47,7 @@ export default function RoomCard() {
     }
 
     return (
-        <Center py={6}>
+        <Center py={6} height='80%'>
             <Stack>
                 <Heading
                     pt={6}

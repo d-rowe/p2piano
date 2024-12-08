@@ -6,16 +6,20 @@ const Donate = () => (
         <Flex
             direction='column'
             alignItems='center'
+            justifyContent='center'
             margin='32px'
         >
             <Box maxWidth='768px'>
-            <Heading padding='16px 0' justifySelf='center'>
-                Donate
+            <Heading
+                padding='16px 0'
+                textAlign='center'
+                fontFamily='"Young Serif", serif'
+            >
+                donate
             </Heading>
-            <Text>
-                This project is provided free of charge, advertisements, and tracking.
-                I don't accept donations, but if you'd like to make music more accessible
-                please consider donating to <Link textDecoration='underline' href='https://www.seattlejazzed.org/donate'>Seattle JazzED</Link> or a music education non-profit working in your community.
+            <Text fontSize='l'>
+                this project is provided free of charge, advertisements, and tracking.
+                while I don't need donations, please consider making music more accessible by donating to <Link textDecoration='underline' href='https://www.seattlejazzed.org/donate'>Seattle JazzED</Link> or a music education non-profit working in your community.
             </Text>
             </Box>
         </Flex>
