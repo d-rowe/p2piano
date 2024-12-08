@@ -748,6 +748,11 @@ module.exports = function (webpackEnv) {
             },
           },
         }),
+      new webpack.DefinePlugin({
+        'process.env.API_URL': isEnvProduction
+          ? JSON.stringify('/api')
+          : JSON.stringify('http://localhost:3001/api')
+      }),
     ].filter(Boolean),
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter

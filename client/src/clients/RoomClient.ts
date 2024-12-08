@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import type {Room} from '../lib/workspaceTypes';
 
-const BASE_URL = '/api';
+const BASE_URL = process.env.API_URL;
 
 export async function createNewRoom() {
     return axios.post(BASE_URL + '/room');
