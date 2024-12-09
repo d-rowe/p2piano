@@ -47,11 +47,11 @@ export default function RoomCard() {
     }
 
     return (
-        <Center py={6} height='80%'>
+        <Center py={6} height='70%'>
             <Stack>
                 <Heading
                     pt={6}
-                    fontSize='8xl'
+                    fontSize='6xl'
                     textAlign='center'
                     fontFamily='"Young Serif", serif'
                 >
@@ -59,7 +59,8 @@ export default function RoomCard() {
                 </Heading>
                 <Text
                     fontFamily='"Young Serif", serif'
-                    fontSize='xl'
+                    fontSize='l'
+                    textAlign='center'
                 >
                     play piano with friends over a peer to peer network
                 </Text>
