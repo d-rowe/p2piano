@@ -1,6 +1,7 @@
 services:
   web:
     build: ./client
+    restart: always
     depends_on:
       service:
         condition: service_started
@@ -11,6 +12,7 @@ services:
       - "8345:8345"
   service:
     build: ./service
+    restart: always
     environment:
       - NODE_ENV=production
     depends_on:
