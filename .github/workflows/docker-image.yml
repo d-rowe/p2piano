@@ -8,11 +8,20 @@ on:
 
 jobs:
 
-  build:
+  build-server:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: cd service && docker build . --file Dockerfile --tag p2piano-server:$(date +%s)
+    - name: Build the server image
+      run: cd service && docker build . --file Dockerfile --tag p2piano-server:latest
+
+  build-client:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the server image
+      run: cd client && docker build . --file Dockerfile --tag p2piano-client:latest
