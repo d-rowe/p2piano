@@ -1,7 +1,7 @@
 import {MongoClient} from "mongodb";
 
 const ENV_HOSTS = {
-    production: 'http://p2piano.home',
+    production: 'http://p2piano-db.home',
     compose: 'database',
 } as const;
 
