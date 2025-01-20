@@ -7,8 +7,8 @@ http://:8345 {
 		path_regexp ^/\b[a-z]{5}\b$
 	}
 
-	reverse_proxy /api/* {$API_URL}
-	reverse_proxy /socket.io/* {$API_URL}
+	reverse_proxy /api/* http://p2piano-server.home
+	reverse_proxy /socket.io/* http://p2piano-server.home
 
 	handle @room {
 		rewrite * /

@@ -5,7 +5,6 @@ import {
     HttpStatus,
     Param,
     Post,
-    Req,
     Res,
 } from '@nestjs/common';
 import {AppService} from './app.service';
