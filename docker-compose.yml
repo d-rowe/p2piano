@@ -8,6 +8,8 @@ services:
     volumes:
       - caddy_data:/data
       - caddy_config:/config
+    environment:
+      API_URL: service:3001
     ports:
       - "8345:8345"
   service:
