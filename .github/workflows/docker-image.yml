@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: './server'
+        working-directory: 'server'
 
     steps:
     - name: 'Login to GitHub Container Registry'
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: './client'
+        working-directory: 'client'
 
     steps:
     - name: 'Login to GitHub Container Registry'
