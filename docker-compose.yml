@@ -14,7 +14,7 @@ services:
     build: ./service
     restart: always
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=compose
     depends_on:
       database:
         condition: service_started
