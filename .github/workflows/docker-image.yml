@@ -8,6 +8,11 @@ jobs:
 
   build-server:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
 
     steps:
     - name: 'Login to GitHub Container Registry'
@@ -25,6 +30,11 @@ jobs:
 
   build-client:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
 
     steps:
     - name: 'Login to GitHub Container Registry'
